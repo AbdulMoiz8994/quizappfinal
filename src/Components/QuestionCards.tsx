@@ -1,10 +1,6 @@
 import React,{useState} from 'react'
 
-type Props={
-    question: string
-    options:string[]
-    callback: (e:React.FormEvent<EventTarget>,UserAns: string) => void
-}
+import {Props} from '../Types/Types'
 
 export const QuestionCards:React.FC<Props> = ({question,options,callback}) => {
 //  console.log(question,options);

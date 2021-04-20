@@ -13,3 +13,8 @@ export type Quiz={
     option: string[]
 }
 
+export type Props={
+    question: string
+    options:string[]
+    callback: (e:React.FormEvent<EventTarget>,UserAns: string) => void
+}
