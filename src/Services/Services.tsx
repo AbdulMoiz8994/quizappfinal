@@ -8,7 +8,7 @@ const Sufflearray=(arr: any[])=>{
 export const Services= async(totalQuestions: number,level: string):Promise<Quiz[]> =>{
     const fetchData=fetch(`https://opentdb.com/api.php?amount=${totalQuestions}&difficulty=${level}&type=multiple`)
     const {results}=await(await fetchData).json();
-    // console.log(results);
+    console.log(results);
     const quiz=results.map((OriginalObj: QuizOriginal) =>{
         return({
           question: OriginalObj.question,

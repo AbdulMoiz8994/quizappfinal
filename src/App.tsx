@@ -47,9 +47,9 @@ if(!state.length){
   return <h2>Loading...</h2>
 }
   return (
-    <div className="App">
-      {score}
-      <h5>{QuestionNumber}/{state.length}</h5>
+    <div>
+     <h2 className={score > 5? "green" : "red"}>Score: {score}</h2>
+      <h5 className="ques-nub">Question NO: {QuestionNumber}/{state.length}</h5>
       <QuestionCards 
       question={state[currentValue].question}
       options={state[currentValue].option}

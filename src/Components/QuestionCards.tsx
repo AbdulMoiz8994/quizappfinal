@@ -12,12 +12,12 @@ const OnChnageFunc=(e:any) =>{
 }
 
     return (
-        <div>
-            <h3>{question}</h3>
+        <div className="sub-container">
+            <h3 className="h3">{question}</h3>
             <form onSubmit={(e:React.FormEvent<EventTarget>) => callback(e,data)}>
         {options.map((values) =>{
             return(
-            <div key={values}>
+            <div key={values} className="options">
             <label>
             <input 
             type="radio" 
@@ -32,7 +32,7 @@ const OnChnageFunc=(e:any) =>{
             </div>
             )
         })}
-        <button type="submit">Next Question</button>
+        <button type="submit" className="button">Next Question</button>
         </form>
         </div>
     )
