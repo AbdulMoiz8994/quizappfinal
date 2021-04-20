@@ -23,7 +23,7 @@ useEffect(() =>{
 const CallFunction=(e:React.FormEvent<EventTarget>,UserAns: string) =>{
   e.preventDefault();
   const getUserAns:Quiz=state[currentValue]
-  // console.log(getUserAns);
+  // console.log("correct Ans " + getUserAns.answer , " USer Selection " + UserAns);
   // console.log(UserAns);
   
   
