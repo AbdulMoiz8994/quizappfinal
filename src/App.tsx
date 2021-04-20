@@ -49,6 +49,12 @@ if(result){
       <div className="result sub-container">
         <h3>Final Result</h3>
         <p>The Result is {score} out of {state.length} 🔔</p>
+        <button className="button" onClick={() =>{ 
+          setCurrentValue(0)
+          setQuestionNumber(1)
+           setScore(0)
+           setResult(false)
+        }}>RESTART</button>
       </div>
     )
 } 
