@@ -10,6 +10,7 @@ let [state, setState]=useState<Quiz[]>([])
 let[currentValue,setCurrentValue]=useState(0)
 let[QuestionNumber,setQuestionNumber]=useState(1)
 let[score,setScore]=useState(0)
+let[result,setResult]=useState(false)
 useEffect(() =>{
   const getQuiz=async() =>{
     const question:Quiz[]= await Services(10,'easy');
@@ -35,12 +36,21 @@ if(currentValue !== state.length -1){
   setCurrentValue(++currentValue)   
   setQuestionNumber(++QuestionNumber)
 }else{
-  alert(`The Result is ${score} out of ${state.length}`)
-  setCurrentValue(0)
-  setQuestionNumber(0)
-  setScore(0)
+  // alert(`The Result is ${score} out of ${state.length}`)
+  setResult(true)
+  // setCurrentValue(0)
+  // setQuestionNumber(0)
+  // setScore(0)
 }
-
+}
+//Thiis show the result our in plan page as we are showing loading
+if(result){
+    return(
+      <div className="result sub-container">
+        <h3>Final Result</h3>
+        <p>The Result is {score} out of {state.length} 🔔</p>
+      </div>
+    )
 } 
 
 if(!state.length){
