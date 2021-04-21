@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import './App.css';
 
-import {Services} from './Services/index'
+import {Services,Difficulty} from './Services/index'
 import{Quiz} from './Types/Types'
 import {QuestionCards} from './Components/index'
 
@@ -13,7 +13,7 @@ let[score,setScore]=useState(0)
 let[result,setResult]=useState(false)
 useEffect(() =>{
   const getQuiz=async() =>{
-    const question:Quiz[]= await Services(10,'easy');
+    const question:Quiz[]= await Services(10,Difficulty.HARD);
     // console.log(question);
     setState(question)
   }
@@ -44,16 +44,22 @@ if(currentValue !== state.length -1){
 }
 }
 //Thiis show the result our in plan page as we are showing loading
+
+let scoresEmoji = score < 5 ? '😟' :  '🙂';
+let scoreColor= score > 5 ? "green" :'red';
+
 if(result){
     return(
       <div className="result sub-container">
         <h3>Final Result</h3>
-        <p>The Result is {score} out of {state.length} 🔔</p>
+        <span style={{color: scoreColor}}>
+        <p>The Result is {score} out of {state.length} {scoresEmoji}</p>
+        </span>
         <button className="button" onClick={() =>{ 
           setCurrentValue(0)
           setQuestionNumber(1)
-           setScore(0)
-           setResult(false)
+          setScore(0)
+          setResult(false)
         }}>RESTART</button>
       </div>
     )
