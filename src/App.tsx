@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from 'react';
 import './App.css';
 
-import {Services,Difficulty} from './Services/index'
+import {Services,Difficulty,NumberQues} from './Services/index'
 import{Quiz} from './Types/Types'
 import {QuestionCards} from './Components/index'
 
@@ -13,7 +13,7 @@ let[score,setScore]=useState(0)
 let[result,setResult]=useState(false)
 useEffect(() =>{
   const getQuiz=async() =>{
-    const question:Quiz[]= await Services(10,Difficulty.HARD);
+    const question:Quiz[]= await Services(NumberQues.TEN,Difficulty.HARD);
     // console.log(question);
     setState(question)
   }
