@@ -16,12 +16,10 @@ export enum NumberQues{
     TEN=10,
     TWENTY=20
 }
-// let arr:[number,...string[]]=[1,"moiz","malik"]
 
 export const Services= async(totalQuestions: NumberQues,level: Difficulty):Promise<Quiz[]> =>{
     const fetchData=fetch(`https://opentdb.com/api.php?amount=${totalQuestions}&difficulty=${level}&type=multiple`)
     const {results}=await(await fetchData).json();
-    // console.log(results);
     const quiz=results.map((OriginalObj: QuizOriginal) =>{
         return({
           question: OriginalObj.question,

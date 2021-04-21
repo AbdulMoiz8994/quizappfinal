@@ -14,7 +14,6 @@ let[result,setResult]=useState(false)
 useEffect(() =>{
   const getQuiz=async() =>{
     const question:Quiz[]= await Services(NumberQues.TEN,Difficulty.HARD);
-    // console.log(question);
     setState(question)
   }
   getQuiz()
@@ -24,8 +23,6 @@ useEffect(() =>{
 const CallFunction=(e:React.FormEvent<EventTarget>,UserAns: string) =>{
   e.preventDefault();
   const getUserAns:Quiz=state[currentValue]
-  // console.log("correct Ans " + getUserAns.answer , " USer Selection " + UserAns);
-  // console.log(UserAns);
   
   
   if(UserAns === getUserAns.answer){
